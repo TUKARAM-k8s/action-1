@@ -13,6 +13,6 @@ jobs:
           run: ls -ltra
 
         - name: "executing shell script"    
-          run: ./.github/workflowsascii-script.sh
+          run: ./.github/workflows/ascii-script.sh
 
         
