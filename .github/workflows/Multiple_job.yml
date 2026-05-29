@@ -1,0 +1,36 @@
+name: Generate ASCII Artwork
+
+on: [push]
+
+jobs:
+    build_job_1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: "Install Cowsay program"
+          run: sudo apt-get install cowsay -y
+
+        - name: "Executing Cowsay program"
+          run: cowsay -f dragon "Hello, I am a dragon" >> dragon.txt
+
+        - name: "Sleep for 10 seconds"
+          run: sleep 10
+
+    test_job_2:
+        needs: [build_job_1]
+        runs-on: ubuntu-latest
+        steps:
+        - name: "Sleep for 10 seconds"
+          run: sleep 10
+
+        - name: "Test file existence"
+          run: grep -q "dragon.txt" dragon.txt && echo "File exists" || echo "File does not exist"
+
+    deploy_job_3:
+        needs: [test_job_2]
+        runs-on: ubuntu-latest
+        steps:
+        - name: "Read files in the repository"
+          run: cat dragon.txt
+
+        - name: "Deploying the file"
+          run: echo "Deploying the file dragon.txt to production environment"
