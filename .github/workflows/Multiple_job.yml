@@ -35,8 +35,8 @@ jobs:
         - name: "checkout repository"
           uses: actions/checkout@v3
 
-        - name: "Sleep for 02 seconds"
-          run: sleep 2
+        - name: "Sleep for 05 seconds"
+          run: sleep 5
 
         - name: "Test file existence"
           run: grep -q "dragon.txt" dragon.txt && echo "File exists" || echo "File does not exist"
