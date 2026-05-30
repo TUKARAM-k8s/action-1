@@ -1,0 +1,19 @@
+name: matrix-configuration
+on: workflow_dispatch
+
+jobs:
+    deploy:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+          image: [hello-world, alpine]
+      runs-on: ${{ matrix.os }}
+      steps:
+        - name: "Checkout Repository"
+          uses: actions/checkout@v4
+
+        - name: "Echo Docker Details"
+          run: docker info
+
+        - name: "Run Docker Image on ${{ matrix.os }}"
+          run: docker run ${{ matrix.image }}
