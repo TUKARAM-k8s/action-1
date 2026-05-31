@@ -4,3 +4,5 @@ cowsay -f dragon "hello dragon" >> dragon.txt
 grep -i "dragon" dragon.txt
 cat dragon.txt
 ls -ltra
+
+##Adding comments to the script
