@@ -6,3 +6,4 @@ cat dragon.txt
 ls -ltra
 
 ##Adding comments to the script
+# This script installs cowsay, generates a dragon ASCII art, and checks for the word "
